@@ -11,13 +11,18 @@
 	});
 </script>
 
-<nav
-	class="flex w-full flex-row items-center justify-evenly border-b-2 border-amber-700 p-4 text-center"
->
-	<a href="/login" class:active={currentPath === '/login'}>Sign In</a>
-	<a href="/login/username" class:active={currentPath === '/login/username'}>Choose Username </a>
-	<a href="/login/photo" class:active={currentPath === '/login/photo'}>Choose Photo </a>
-</nav>
+<div role="tablist" class="tabs tabs-lift tabs-xl flex flex-row items-center justify-evenly p-4">
+	<a role="tab" class="tab" href="/login" class:tab-active={currentPath === '/login'}>Sign In</a>
+	<a
+		role="tab"
+		class="tab"
+		href="/login/username"
+		class:tab-active={currentPath === '/login/username'}>Choose Username</a
+	>
+	<a role="tab" class="tab" href="/login/photo" class:tab-active={currentPath === '/login/photo'}
+		>Choose Photo</a
+	>
+</div>
 
 <div class="mx-auto w-4/6 items-center text-center">
 	{@render children()}
