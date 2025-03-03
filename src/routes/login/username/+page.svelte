@@ -35,7 +35,7 @@
 
 				isLoading = false;
 			} catch (error) {
-				console.log('error checking availability: ', error);
+				console.error('error checking availability: ', error);
 			}
 		}, 600);
 	}
@@ -64,7 +64,7 @@
 			username = '';
 			isAvailable = false;
 		} catch (error) {
-			console.log('error creating username: ', error);
+			console.error('error creating username: ', error);
 		}
 	}
 </script>

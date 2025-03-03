@@ -29,7 +29,7 @@
 	async function addLink(e: any) {
 		e.preventDefault();
 		const userRef = doc(db, 'users', $currentUser!.uid);
-		console.log('formData', $formData);
+
 		await updateDoc(userRef, {
 			links: arrayUnion({
 				...$formData,

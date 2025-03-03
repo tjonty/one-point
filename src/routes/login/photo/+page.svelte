@@ -22,8 +22,6 @@
 
 		isUploading = false;
 	}
-	// console.log('checkong imag soource: ', previewURL, $userData?.ImageURL, '/images/userImg.png');
-	// const src = previewURL || $userData?.ImageURL || '/images/userImg.png';
 </script>
 
 <div>
