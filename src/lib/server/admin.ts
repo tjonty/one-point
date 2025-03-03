@@ -4,11 +4,7 @@ import { getFirestore } from "firebase-admin/firestore";
 
 try {
     pkg.initializeApp({
-        credential: pkg.credential.cert({
-            projectId: import.meta.env.VITE_FB_ADMIN_PROJECT_ID,
-            clientEmail: import.meta.env.VITE_FB_ADMIN_CLIENT_EMAIL,
-            privateKey: import.meta.env.VITE_FB_ADMIN_PRIVATE_KEY
-        })
+        credential: pkg.credential.cert(JSON.parse(import.meta.env.VITE_FB_SERVICE_ACCOUNT))
     })
 } catch (err: any) {
     console.error('Firebase Admin initialization error:', err);
