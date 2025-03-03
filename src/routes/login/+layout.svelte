@@ -11,16 +11,24 @@
 	});
 </script>
 
-<div role="tablist" class="tabs tabs-lift tabs-xl flex flex-row items-center justify-evenly p-4">
-	<a role="tab" class="tab" href="/login" class:tab-active={currentPath === '/login'}>Sign In</a>
+<div
+	role="tablist"
+	class="tabs tabs-lift tabs-md md:tabs-xl flex flex-row items-center justify-evenly bg-black p-4"
+>
+	<a role="tab" class="tab bg-white" href="/login" class:tab-active={currentPath === '/login'}
+		>Sign In</a
+	>
 	<a
 		role="tab"
-		class="tab"
+		class="tab bg-white"
 		href="/login/username"
 		class:tab-active={currentPath === '/login/username'}>Choose Username</a
 	>
-	<a role="tab" class="tab" href="/login/photo" class:tab-active={currentPath === '/login/photo'}
-		>Choose Photo</a
+	<a
+		role="tab"
+		class="tab bg-white"
+		href="/login/photo"
+		class:tab-active={currentPath === '/login/photo'}>Choose Photo</a
 	>
 </div>
 

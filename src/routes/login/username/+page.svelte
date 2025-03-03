@@ -1,7 +1,7 @@
 <script lang="ts">
 	import AuthCheck from '$lib/components/AuthCheck.svelte';
 	import { db } from '$lib/firebase';
-	import { currentUser } from '$lib/stores';
+	import { currentUser, userData } from '$lib/stores';
 	import { doc, getDoc, writeBatch } from 'firebase/firestore';
 
 	let username = $state('');
@@ -47,14 +47,14 @@
 			batch.set(doc(db, 'usernames', username), { uid: $currentUser?.uid });
 			batch.set(doc(db, 'users', $currentUser!.uid), {
 				username,
-				ImageURL: $currentUser?.photoURL ?? null,
+				ImageURL: null,
 				published: true,
-				bio: 'hello',
+				bio: 'new bio',
 				links: [
 					{
 						title: 'Test',
 						url: 'http://test.co',
-						icon: 'idle'
+						icon: 'linkIcon'
 					}
 				]
 			});
@@ -69,38 +69,76 @@
 	}
 </script>
 
-<AuthCheck>
-	<h2>Username</h2>
-	<form onsubmit={confirmUserName} class="">
-		<input
-			name="username"
-			type="text"
-			placeholder="Username"
-			bind:value={username}
-			oninput={checkAvailability}
-			class:input-error={!isValid && isTouched}
-			class:input-warning={isTaken}
-			class:input-success={isAvailable && isValid && !isLoading}
-		/>
+<div>
+	<AuthCheck>
+		<div
+			class="card bg-base-100 m-auto mt-20 flex w-5/6 items-center border-none uppercase shadow-none"
+		>
+			<div class="card-body">
+				{#if $userData?.username}
+					<h2 class="card-title m-4 items-end">
+						your username: <span class=" text-3xl">{$userData.username}</span>
+					</h2>
+					<p>username cannot be changed!</p>
+					<div class="card-actions justify-center">
+						<a
+							href="/login/photo"
+							class="btn btn-brand btn-md lg:btn-lg xl:btn-xl btn-hover w-full"
+						>
+							Choose Profile Photo
+						</a>
+					</div>
+				{:else}
+					<form onsubmit={confirmUserName}>
+						<label class="input">
+							<svg class="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+								><g
+									stroke-linejoin="round"
+									stroke-linecap="round"
+									stroke-width="2.5"
+									fill="none"
+									stroke="currentColor"
+									><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></g
+								></svg
+							>
+							<input
+								type="text"
+								name="username"
+								class="grow"
+								placeholder="Username"
+								bind:value={username}
+								oninput={checkAvailability}
+								class:input-error={!isValid && isTouched}
+								class:input-warning={isTaken}
+								class:input-success={isAvailable && isValid && !isLoading}
+							/>
+						</label>
+						<div class="m-2">
+							{#if isLoading}
+								<p class="text-secondary">Checking availability of @{username}...</p>
+							{/if}
 
-		<div>
-			{#if isLoading}
-				<p class="text-secondary">Checking availability of @{username}...</p>
-			{/if}
+							{#if !isValid && isTouched}
+								<p class="text-error text-sm">must be 5-16 characters long, alphanumeric only</p>
+							{/if}
 
-			{#if !isValid && isTouched}
-				<p class="text-error text-sm">must be 5-16 characters long, alphanumeric only</p>
-			{/if}
+							{#if isValid && !isAvailable && !isLoading}
+								<p class="text-warning text-sm">
+									@{username} is not available
+								</p>
+							{/if}
 
-			{#if isValid && !isAvailable && !isLoading}
-				<p class="text-warning text-sm">
-					@{username} is not available
-				</p>
-			{/if}
-
-			{#if isAvailable}
-				<button class="btn btn-success">Confirm username @{username} </button>
-			{/if}
-		</div>
-	</form>
-</AuthCheck>
+							{#if isAvailable}
+								<div class="card-actions justify-center">
+									<button class="btn btn-md xl:btn-lg btn-soft btn-success m-2">
+										Confirm username @{username}
+									</button>
+								</div>
+							{/if}
+						</div>
+					</form>
+				{/if}
+			</div>
+		</div></AuthCheck
+	>
+</div>

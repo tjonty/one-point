@@ -9,9 +9,17 @@ body {
     font-optical-sizing: auto;
     font-weight: 500;
     font-style: normal;
-    background-color: #FEFAE0;
+    background-color: #fff
+}
+
+.btn-brand {
+    @apply text-[#C84B31] uppercase
+}
+
+.btn-hover {
+    @apply hover:text-[#F6F0F0] hover:bg-[#C84B31] ease-in-out transition duration-300
 }
 
 .tab-active {
-    @apply ease-in-out transition duration-300 text-primary [--tab-bg:#B9B28A] [--tab-border-color:#EBE5C2]
+    @apply ease-in-out transition duration-300 [--tab-bg:#de6d2e] text-[#F6F0F0]
 }
