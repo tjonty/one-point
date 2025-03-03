@@ -1,6 +1,7 @@
 import type { PageServerLoad } from "./$types";
 import { adminAuth, adminDB } from "$lib/server/admin";
 import { error, fail, redirect, type Actions } from "@sveltejs/kit";
+import { trackEvent } from "$lib/firebase";
 
 export const load = (async ({ locals, params }) => {
     const uid = locals.userID;
@@ -35,6 +36,11 @@ export const actions = {
         if (params.username !== username) {
             throw error(401, "That username does not belong to you");
         }
+
+        trackEvent('form_submission', {
+            form_name: 'user_bio_form',
+            status: 'success',
+        });
 
         await userRef.update({
             bio,

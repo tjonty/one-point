@@ -2,7 +2,7 @@
 	import { writable } from 'svelte/store';
 	import type { PageData } from './$types';
 	import { arrayRemove, arrayUnion, doc, setDoc, updateDoc } from 'firebase/firestore';
-	import { db } from '$lib/firebase';
+	import { db, trackEvent } from '$lib/firebase';
 	import { currentUser, userData } from '$lib/stores';
 	import { page } from '$app/stores';
 	import SortableList from '$lib/components/SortableList.svelte';
@@ -44,6 +44,11 @@
 		});
 
 		showForm = false;
+
+		trackEvent('link_submission', {
+			form_name: 'add_link_form',
+			status: 'success'
+		});
 	}
 
 	async function toggleProfileStatus(item: any) {
@@ -58,6 +63,11 @@
 
 		await updateDoc(userRef, {
 			links: arrayRemove(link)
+		});
+
+		trackEvent('btn_click', {
+			btn_name: 'delete_link',
+			status: 'success'
 		});
 	}
 

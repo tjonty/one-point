@@ -1,6 +1,6 @@
 <script lang="ts">
 	import AuthCheck from '$lib/components/AuthCheck.svelte';
-	import { db } from '$lib/firebase';
+	import { db, trackEvent } from '$lib/firebase';
 	import { currentUser, userData } from '$lib/stores';
 	import { doc, getDoc, writeBatch } from 'firebase/firestore';
 
@@ -48,7 +48,7 @@
 			batch.set(doc(db, 'users', $currentUser!.uid), {
 				username,
 				ImageURL: null,
-				published: true,
+				isPublic: true,
 				bio: 'new bio',
 				links: [
 					{
@@ -63,6 +63,11 @@
 
 			username = '';
 			isAvailable = false;
+
+			trackEvent('form_submission', {
+				form_name: 'username_create_form',
+				status: 'success'
+			});
 		} catch (error) {
 			console.error('error creating username: ', error);
 		}

@@ -2,6 +2,7 @@
 	import { type Snippet } from 'svelte';
 	import { afterNavigate } from '$app/navigation';
 	import { userData } from '$lib/stores';
+	import { analytics, trackEvent } from '$lib/firebase';
 
 	let { children }: { children: Snippet } = $props();
 
@@ -9,6 +10,14 @@
 
 	afterNavigate((navigation) => {
 		currentPath = navigation.to?.url.pathname as string;
+		if (analytics) {
+			const url = window.location.pathname + window.location.search;
+			trackEvent('page_view', {
+				page_path: url,
+				page_title: document.title,
+				page_location: window.location.href
+			});
+		}
 	});
 </script>
 

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import AuthCheck from '$lib/components/AuthCheck.svelte';
-	import { db, storage } from '$lib/firebase';
+	import { db, storage, trackEvent } from '$lib/firebase';
 	import { currentUser, userData } from '$lib/stores';
 	import { doc, updateDoc } from 'firebase/firestore';
 
@@ -21,6 +21,10 @@
 		await updateDoc(doc(db, 'users', $currentUser!.uid), { ImageURL: url });
 
 		isUploading = false;
+		trackEvent('form_submission', {
+			form_name: 'profile_photo_form',
+			status: 'success'
+		});
 	}
 </script>
 

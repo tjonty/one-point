@@ -22,7 +22,7 @@ export const load = (async ({ params }) => {
 
     const data = snapshot.docs[0]?.data();
 
-    if (!data.published) {
+    if (!data.isPublic) {
         throw error(403, `The profile is not public!`)
     }
 
