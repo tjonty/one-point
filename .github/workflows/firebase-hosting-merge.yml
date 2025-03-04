@@ -11,6 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - run: npm ci
       - run: npm ci && npm run build
         env:
           VITE_FB_API_KEY: ${{ secrets.VITE_FB_API_KEY }}
@@ -27,3 +28,5 @@ jobs:
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_ONEPOINT_83503 }}
           channelId: live
           projectId: onepoint-83503
+        env:
+          FIREBASE_CLI_EXPERIMENTS: webframeworks
