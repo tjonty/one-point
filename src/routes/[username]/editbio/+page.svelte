@@ -5,17 +5,18 @@
 	let { data }: { data: PageData } = $props();
 </script>
 
-<main class="prose mx-auto my-6 max-w-lg text-center">
+<div class="mx-auto mt-10 flex w-11/12 flex-col gap-8 p-4 uppercase md:w-4/5 lg:mt-16 lg:w-1/2">
 	<p>Current Bio: <span class="text-info">{data.bio}</span></p>
 
-	<p class="text-error">{$page.form?.problem ?? ''}</p>
-	<form method="POST">
-		<div class="form-control m-auto flex flex-col items-center">
+	<p class="text-error" class:hidden={!$page.form?.problem}>{$page.form?.problem}</p>
+
+	<form method="POST" class="flex flex-col items-center gap-6">
+		<div class="form-control m-auto flex w-7/12 flex-col items-center gap-4">
 			<label for="bio" class="label">
 				<span class="label-text">Your bio</span>
 			</label>
-			<textarea name="bio" class="textarea textarea-bordered" value={data.bio}></textarea>
+			<textarea name="bio" class="textarea textarea-bordered w-full" value={data.bio}></textarea>
 		</div>
-		<button class="btn btn-success my-5">Update Bio</button>
+		<button class="btn btn-success btn-lg xl:btn-xl w-5/12"> Update Bio </button>
 	</form>
-</main>
+</div>

@@ -9,17 +9,21 @@ body {
     font-optical-sizing: auto;
     font-weight: 500;
     font-style: normal;
-    background-color: #fff
+    background-image: url('/images/bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    @apply text-white text-center
 }
 
 .btn-brand {
-    @apply text-[#C84B31] uppercase
+    @apply text-white uppercase bg-transparent shadow-none
 }
 
 .btn-hover {
-    @apply hover:text-[#F6F0F0] hover:bg-[#C84B31] ease-in-out transition duration-300
+    @apply hover:text-[#F6F0F0] hover:bg-[#DE6D2E] ease-in-out transition duration-500
 }
 
-.tab-active {
-    @apply ease-in-out transition duration-300 [--tab-bg:#de6d2e] text-[#F6F0F0]
+.nav-active {
+    @apply text-[#DE6D2E] ease-in-out transition duration-1000
 }

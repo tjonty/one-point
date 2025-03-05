@@ -10,19 +10,19 @@
 	<meta name="description" content={data.bio} />
 </svelte:head>
 
-<main class="prose mx-auto mt-10 flex flex-col gap-6 text-center uppercase">
-	<h1 class="text-xl text-[#C84B31] md:text-4xl">
+<div class="m-auto mt-10 flex w-11/12 flex-col gap-8 uppercase md:w-4/5 lg:mt-16 lg:w-1/2">
+	<h1 class="text-success text-xl lowercase md:text-4xl">
 		@{data.username}
 	</h1>
 
 	<img src={data.ImageURL ?? '/userImg.png'} alt="" width="256" class="mx-auto" />
 
 	<p class="text-xl">{data.bio ?? 'no bio yet...'}</p>
-	<ul class="list-none">
+	<ul class="flex list-none flex-col gap-6">
 		{#each data.links as item}
-			<li class="m-2">
+			<li class="w-full">
 				<UserLink {...item} />
 			</li>
 		{/each}
 	</ul>
-</main>
+</div>

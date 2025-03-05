@@ -1,6 +1,9 @@
 <script lang="ts">
+	import { afterNavigate, goto } from '$app/navigation';
 	import { auth } from '$lib/firebase';
 	import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+
+	let currentPath = $state('');
 
 	async function signInWithGoogle() {
 		const provider = new GoogleAuthProvider();
@@ -15,11 +18,20 @@
 			},
 			body: JSON.stringify({ idToken })
 		});
+
+		if (res.ok) {
+			afterNavigate(async (navigation) => {
+				currentPath = navigation.to?.url.pathname as string;
+				if (currentPath != `/login`) {
+					await goto('/login');
+				}
+			});
+		}
 	}
 </script>
 
 <div class="uppercase">
-	<button on:click={signInWithGoogle} class="btn btn-brand btn-hover btn-lg xl:btn-xl">
+	<button onclick={signInWithGoogle} class="btn btn-brand btn-hover btn-lg xl:btn-xl">
 		Sign in with Google
 	</button>
 </div>

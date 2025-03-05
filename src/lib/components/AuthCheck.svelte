@@ -9,7 +9,7 @@
 {#if $currentUser}
 	{@render children()}
 {:else}
-	<p class="text-error m-4">
+	<p class="text-error mt-8 flex flex-col gap-6 lg:mt-16">
 		You must be signed in to access this page.
 		<SignIn />
 	</p>

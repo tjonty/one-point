@@ -84,35 +84,39 @@
 </script>
 
 <AuthCheck>
-	<div class="mt-10 flex w-full flex-col items-center p-4 text-center uppercase shadow-none">
+	<div
+		class="mx-auto mt-10 flex w-11/12 flex-col items-center gap-8 p-4 uppercase md:w-4/5 lg:mt-16 lg:w-1/2"
+	>
 		{#if $userData?.username === $page.params.username}
-			<h2 class="card-title text-xl">Edit your profile</h2>
+			<h2 class="text-xl">Edit your profile</h2>
 
-			<p class="my-4 flex flex-col items-center">
+			<p class="flex flex-col items-center">
 				Access your profile:
 				<br />
-				<span class="text-xl lowercase">
-					<a href={`https://onepoint/${$userData.username}`}>
-						https://onepoint/{$userData.username}
+				<span class="text-success text-xl lowercase">
+					<a href={`https://onepoint.it.com/${$userData.username}`}>
+						https://onepoint.it.com/{$userData.username}
 					</a>
 				</span>
 			</p>
 
-			<a href="/login/photo" class="badge badge-soft badge-neutral my-2"> change profile photo </a>
+			<a href="/login/photo" class="badge badge-soft badge-neutral"> change profile photo </a>
 
-			<form class="form-control my-2 text-xs">
+			<form class="form-control text-xs">
 				<label class="label flex cursor-pointer items-start justify-center">
 					<span class="label-text mr-6">
 						<div
 							class="tooltip group-hover:tooltip-open"
 							data-tip="If public, the world can see your profile"
+							class:text-success={$userData?.isPublic}
+							class:text-error={!$userData?.isPublic}
 						>
 							{$userData?.isPublic ? 'Public profile' : 'Private profile'}
 						</div>
 					</span>
 					<input
 						type="checkbox"
-						class=" toggle toggle-xs toggle-success"
+						class=" toggle toggle-xs text-error checked:text-success"
 						checked={$userData?.isPublic}
 						onchange={toggleProfileStatus}
 					/>
@@ -125,9 +129,10 @@
 						<UserLink {...link} {index} />
 						<button
 							onclick={() => deleteLink(link)}
-							class="btn btn-xs btn-dash btn-error absolute -right-6 bottom-9 transition-all group-hover:visible"
-							>Delete</button
+							class="btn btn-xs btn-error absolute -right-6 bottom-9 transition-all group-hover:visible"
 						>
+							Delete
+						</button>
 					</div>
 				{/snippet}
 			</SortableList>
@@ -135,28 +140,30 @@
 			{#if showForm}
 				<form
 					onsubmit={addLink}
-					class="bg-base-200 m-2 mx-auto flex w-full flex-col items-center rounded-xl"
+					class="mx-auto flex w-full flex-col items-center gap-4 rounded-xl border-2 border-white p-8 text-black"
 				>
-					<select name="icon" class="select select-sm mb-2" bind:value={$formData.icon}>
+					<select name="icon" class="select select-sm" bind:value={$formData.icon}>
 						{#each icons as icon}
-							<option value={icon.toLowerCase()}>{icon}</option>
+							<option value={icon.toLowerCase()}>
+								{icon}
+							</option>
 						{/each}
 					</select>
 					<input
 						name="title"
 						type="text"
 						placeholder="Title"
-						class="input input-sm my-2"
+						class="input input-sm"
 						bind:value={$formData.title}
 					/>
 					<input
 						name="url"
 						type="text"
 						placeholder="URL"
-						class="input input-sm mt-2"
+						class="input input-sm"
 						bind:value={$formData.url}
 					/>
-					<div class="my-4">
+					<div>
 						{#if !titleIsValid}
 							<p class="text-error text-xs">Must have valid title</p>
 						{/if}
@@ -168,21 +175,20 @@
 						{/if}
 					</div>
 
-					<button disabled={!formIsValid} type="submit" class="btn btn-success block">
+					<button disabled={!formIsValid} type="submit" class="btn btn-brand btn-success">
 						Add Link
 					</button>
 
-					<button type="button" class="btn btn-xs my-4" onclick={cancelLink}>Cancel</button>
+					<button type="button" class="btn btn-xs" onclick={cancelLink}>Cancel</button>
 				</form>
 			{:else}
 				<button
 					onclick={() => (showForm = true)}
-					class="btn btn-brand btn-hover btn-lg xl:btn-xl m-2"
+					class="btn btn-brand btn-hover btn-lg xl:btn-xl w-7/12"
 				>
 					Add a Link
 				</button>
 			{/if}
-			<SignOut />
 		{:else}
 			<p>
 				you're trying to access this page without signin: go to

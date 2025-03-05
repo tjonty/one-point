@@ -62,7 +62,7 @@
 	<ul class="m-4 flex w-full list-none flex-col items-center gap-2 p-0 md:gap-4">
 		{#each list as link, index (link.id)}
 			<li
-				class="w-full max-w-md border-2 border-dashed border-transparent p-2 transition-all"
+				class="w-full max-w-md border-2 border-dashed p-2 transition-all"
 				class:over={link.id === isOver}
 				data-index={index}
 				data-id={link.id}

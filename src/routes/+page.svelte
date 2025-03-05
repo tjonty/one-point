@@ -1,19 +1,26 @@
-<div
-	class="card m-auto flex w-11/12 items-center bg-[#EEEEEE] p-4 uppercase shadow-sm md:w-4/5 lg:w-1/2"
->
-	<figure class="px-10 pt-10">
-		<img src="/images/onepoint-logo.png" alt="Onepoint Logo" class="w-full rounded-xl lg:w-5/6" />
-	</figure>
-	<div class="card-body items-center text-center">
-		<h2 class="card-title">Onepoint</h2>
-		<p>A place you can create your own page with all your professional link at one point.</p>
-		<div class="card-actions">
-			<a href="/login" class="btn btn-brand btn-md lg:btn-lg xl:btn-xl btn-hover w-full">
+<script>
+	import { currentUser, userData } from '$lib/stores';
+</script>
+
+<div class="m-auto flex w-11/12 flex-col items-center gap-8 p-4 uppercase md:w-4/5 lg:w-1/2">
+	<img src="/images/favicon.png" alt="Onepoint Logo" class="w-full rounded-xl lg:h-40 lg:w-40" />
+	<h2 class="">Onepoint</h2>
+	<p>Craft a sleek, all-in-one page where every professional link shines in a single spotlight.</p>
+	<div class="flex w-full flex-col gap-4">
+		{#if $currentUser}
+			<a
+				href={`/${$userData?.username}/edit`}
+				class="btn btn-brand btn-md lg:btn-lg xl:btn-xl btn-hover mx-auto w-9/12"
+			>
+				Edit Profile
+			</a>
+		{:else}
+			<a href="/login" class="btn btn-brand btn-md lg:btn-lg xl:btn-xl btn-hover mx-auto w-9/12">
 				Get Started
 			</a>
-			<a href="/tjonty3" class="btn btn-brand btn-md lg:btn-lg xl:btn-xl btn-hover w-full">
-				Checkout Example
+			<a href="/tjonty23" class="btn btn-brand btn-md lg:btn-lg xl:btn-xl btn-hover mx-auto w-9/12">
+				Sample Profile
 			</a>
-		</div>
+		{/if}
 	</div>
 </div>
