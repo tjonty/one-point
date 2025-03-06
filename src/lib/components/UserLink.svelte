@@ -12,8 +12,8 @@
 	class="stack bg-base-300 not-prose mx-auto flex w-full max-w-md items-center justify-center rounded-lg p-2 px-4 text-center no-underline"
 	target="_blank"
 >
-	<img src={`/images/${icon}.png`} alt={icon} class="!w-4 object-contain md:!w-8" />
-	<span class="text-lg font-bold text-black">{title}</span>
+	<img src={`/images/${icon}.png`} alt={icon} class={'!w-4 object-contain md:!w-8'} />
+	<span class={`text-lg font-bold text-black  ${className ? 'pr-8' : ''}`}>{title}</span>
 	<div
 		class={`tooltip group-hover:tooltip-open !h-8 !w-8 ${className}`}
 		data-tip="Drag & Drop link to adjust order"
