@@ -26,7 +26,5 @@
 </div>
 <div class="m-4 flex justify-end">
 	developed by
-	<a class="!text-warning pl-2" href="https://onepoint.it.com/tjonty23" target="_blank">
-		Jonty Tejani
-	</a>
+	<a class="!text-warning pl-2" href="/tjonty23" target="_blank"> Jonty Tejani </a>
 </div>

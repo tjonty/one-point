@@ -2,6 +2,9 @@
 	export let icon = 'linkIcon2';
 	export let url = 'foo';
 	export let title = 'some cool title';
+
+	let className = '';
+	export { className as class };
 </script>
 
 <a
@@ -12,7 +15,7 @@
 	<img src={`/images/${icon}.png`} alt={icon} class="!w-4 object-contain md:!w-8" />
 	<span class="text-lg font-bold text-black">{title}</span>
 	<div
-		class="tooltip group-hover:tooltip-open !h-8 !w-8"
+		class={`tooltip group-hover:tooltip-open !h-8 !w-8 ${className}`}
 		data-tip="Drag & Drop link to adjust order"
 	>
 		<svg
@@ -21,7 +24,8 @@
 			id="Flat"
 			xmlns="http://www.w3.org/2000/svg"
 			class="!h-8 !w-8"
-			><g id="SVGRepo_bgCarrier" stroke-width="0" /><g
+		>
+			<g id="SVGRepo_bgCarrier" stroke-width="0" /><g
 				id="SVGRepo_tracerCarrier"
 				stroke-linecap="round"
 				stroke-linejoin="round"

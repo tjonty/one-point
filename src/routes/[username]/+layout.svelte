@@ -23,7 +23,7 @@
 
 <ProfileNavbar />
 
-<div class="mx-auto w-full items-center text-center">
+<div class="mx-auto mb-16 w-full items-center text-center">
 	{@render children()}
 </div>
 

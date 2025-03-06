@@ -29,7 +29,7 @@
 </script>
 
 <AuthCheck>
-	<div class="m-auto mt-10 flex w-11/12 flex-col gap-8 p-4 uppercase md:w-4/5 lg:mt-16 lg:w-1/2">
+	<div class="m-auto flex w-11/12 flex-col gap-8 p-4 uppercase md:w-4/5 lg:w-1/2">
 		<h2 class="text-sm md:text-2xl">Upload a Profile Photo</h2>
 		<img
 			src={previewURL || $userData?.ImageURL || '/images/userImg.png'}

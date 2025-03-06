@@ -47,7 +47,7 @@
 							href={`/${$userData?.username}/edit`}
 							class:nav-active={currentPath === `/${$userData?.username}/edit`}
 						>
-							Update Bio
+							Edit Mode
 						</a>
 					</li>
 					<li>

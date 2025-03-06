@@ -75,7 +75,7 @@
 </script>
 
 <AuthCheck>
-	<div class="mx-auto mt-10 flex w-11/12 flex-col gap-8 p-4 uppercase md:w-4/5 lg:mt-16 lg:w-1/2">
+	<div class="mx-auto flex w-11/12 flex-col gap-8 p-4 uppercase md:w-4/5 lg:w-1/2">
 		{#if $userData?.username}
 			<h2 class="items-end">
 				your username, <span class=" pl-4 text-3xl">{$userData.username}</span>

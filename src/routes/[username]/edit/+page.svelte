@@ -84,9 +84,7 @@
 </script>
 
 <AuthCheck>
-	<div
-		class="mx-auto mt-10 flex w-11/12 flex-col items-center gap-8 p-4 uppercase md:w-4/5 lg:mt-16 lg:w-1/2"
-	>
+	<div class="mx-auto flex w-11/12 flex-col items-center gap-8 p-4 uppercase md:w-4/5 lg:w-1/2">
 		{#if $userData?.username === $page.params.username}
 			<h2 class="text-xl">Edit your profile</h2>
 
@@ -95,7 +93,7 @@
 				<br />
 				<span class="text-success text-xl lowercase">
 					<a href={`https://onepoint.it.com/${$userData.username}`}>
-						https://onepoint.it.com/{$userData.username}
+						@{$userData.username}
 					</a>
 				</span>
 			</p>
@@ -191,9 +189,10 @@
 			{/if}
 		{:else}
 			<p>
-				you're trying to access this page without signin: go to
-				<a href="/login" class="badge badge-soft badge-neutral">https://onepoint/login</a>
-				to signin and then come back.
+				you're trying to access this page without signin.
+				<a href="/" class="btn btn-brand btn-hover btn-lg xl:btn-xl mx-auto w-fit">
+					Visit Home Page
+				</a>
 			</p>
 		{/if}
 	</div>

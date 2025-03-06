@@ -19,12 +19,3 @@
 <div class="flex min-h-screen flex-col">
 	{@render children()}
 </div>
-
-<style>
-	@media (prefers-color-scheme: dark) {
-		:global(body) {
-			background-color: #000000;
-			color: #ffffff;
-		}
-	}
-</style>
