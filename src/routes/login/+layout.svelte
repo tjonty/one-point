@@ -46,36 +46,36 @@
 				class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 text-black shadow"
 			>
 				<li>
-					<a href="/login" class:nav-active={currentPath === '/login'}> Sign In </a>
+					<button class:nav-active={currentPath === '/login'}> Sign In </button>
 				</li>
 				<li>
-					<a href="/login/username" class:nav-active={currentPath === '/login/username'}>
-						Choose Username
-					</a>
+					<button class:nav-active={currentPath === '/login/username'}> Choose Username </button>
 				</li>
 				<li>
-					<a href="/login/photo" class:nav-active={currentPath === '/login/photo'}>
-						Upload Photo
-					</a>
+					<button class:nav-active={currentPath === '/login/photo'}> Upload Photo </button>
 				</li>
 			</ul>
 		</div>
-		<a href="/" class="pl-4 text-xl">
-			<img src="/images/favicon.png" alt="logo" class="h-12 w-12" />
+		<a href="/" class="text-xl md:pl-4">
+			<img src="/images/favicon.png" alt="logo" class="h-12 w-12 md:m-4 md:h-20 md:w-20" />
 		</a>
 	</div>
 	<div class="navbar-center hidden md:flex">
 		<ul class="menu menu-horizontal px-1 text-xl">
 			<li>
-				<a href="/login" class:nav-active={currentPath === '/login'}> Sign In </a>
+				<button class="cursor-default" class:nav-active={currentPath === '/login'}>
+					Sign In
+				</button>
 			</li>
 			<li>
-				<a href="/login/username" class:nav-active={currentPath === '/login/username'}>
+				<button class="cursor-default" class:nav-active={currentPath === '/login/username'}>
 					Choose Username
-				</a>
+				</button>
 			</li>
 			<li>
-				<a href="/login/photo" class:nav-active={currentPath === '/login/photo'}> Upload Photo </a>
+				<button class="cursor-default" class:nav-active={currentPath === '/login/photo'}>
+					Upload Photo
+				</button>
 			</li>
 		</ul>
 	</div>

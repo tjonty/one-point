@@ -60,8 +60,8 @@
 					</li>
 				</ul>
 			</div>
-			<a href="/" class="pl-4 text-xl">
-				<img src="/images/favicon.png" alt="logo" class="h-12 w-12" />
+			<a href="/" class="text-xl md:pl-4">
+				<img src="/images/favicon.png" alt="logo" class="h-12 w-12 md:m-4 md:h-20 md:w-20" />
 			</a>
 		</div>
 		<div class="navbar-center hidden md:flex">
@@ -96,6 +96,14 @@
 			{#if $currentUser}
 				<SignOut class="btn btn-brand mr-4" />
 			{/if}
+		</div>
+	</div>
+{:else}
+	<div class="navbar shadow-sm">
+		<div class="navbar-start">
+			<a href="/" class="text-xl md:pl-4">
+				<img src="/images/favicon.png" alt="logo" class="h-12 w-12 md:m-4 md:h-20 md:w-20" />
+			</a>
 		</div>
 	</div>
 {/if}

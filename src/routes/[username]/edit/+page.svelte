@@ -38,9 +38,9 @@
 		});
 
 		formData.set({
-			icon: '',
+			icon: 'linkIcon',
 			title: '',
-			url: ''
+			url: 'https://'
 		});
 
 		showForm = false;

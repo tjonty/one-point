@@ -22,7 +22,7 @@
 		if (res.ok) {
 			afterNavigate(async (navigation) => {
 				currentPath = navigation.to?.url.pathname as string;
-				if (currentPath != `/login`) {
+				if (currentPath !== `/login`) {
 					await goto('/login');
 				}
 			});
