@@ -33,7 +33,10 @@ This isn’t a prototype—it’s a polished, live app ready to roll. Deployed o
 - **SvelteKit**: The backbone of it all.  
 - **Firebase**: Auth and hosting, sorted.  
 - **TailwindCSS + DaisyUI**: Style without the sweat.  
-- Check the `package.json` for the full stack!  
+- Check the `package.json` for the full stack!
+
+## Inspiration 🙏
+I got the idea for this project from [Fireship] and [Linktree]!
 
 ## More From Me 🧑‍💻  
 Curious? Stalk my other repos!  
