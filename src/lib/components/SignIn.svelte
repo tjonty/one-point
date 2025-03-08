@@ -30,8 +30,18 @@
 	}
 </script>
 
-<div class="uppercase">
-	<button onclick={signInWithGoogle} class="btn btn-brand btn-hover btn-lg xl:btn-xl">
+<div class=" flex flex-col gap-4 uppercase">
+	<button onclick={signInWithGoogle} class="btn btn-brand btn-hover btn-lg xl:btn-xl mx-auto w-fit">
 		Sign in with Google
 	</button>
+	<p>
+		Secure sign in with
+		<a
+			href="https://firebase.google.com/docs/auth"
+			target="_blank"
+			class="text-warning underline underline-offset-4"
+		>
+			Firebase-Auth
+		</a>
+	</p>
 </div>
