@@ -105,5 +105,13 @@
 				<img src="/images/favicon.png" alt="logo" class="h-12 w-12 md:m-4 md:h-20 md:w-20" />
 			</a>
 		</div>
+		{#if currentPath === '/tjonty23'}
+			<div class="navbar-end items-center">
+				<div class="lg:text-md flex flex-col text-sm">
+					<span class="mr-12 lg:mr-26">developed by</span>
+					<a class="!text-warning" href="/tjonty23" target="_blank"> Jonty Tejani </a>
+				</div>
+			</div>
+		{/if}
 	</div>
 {/if}
